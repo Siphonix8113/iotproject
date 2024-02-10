@@ -9,36 +9,5 @@
             Items : WEMOS,BREADBOARD,TEMP AND AIR QUALITY SENSORS, JUMPER WIRES
         </p>
         <h1>Code</h1>
-        <p>#include <DHTesp.h>
-#define DHTPIN D5
-#define DHTTYPE DHTesp::DHT11
-DHTesp dht;
-int sensorPin=A0; //Initialize variable for sensorPin
-int lowest=500; //Lowest measured value by sensor
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600); //Begin Serial Monitor
-  pinMode(sensorPin, INPUT); //Define the pinMode for the sensorPin
-  dht.setup(DHTPIN, DHTTYPE); //Setup the DHTPIN and DHTTYPE
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  float humidity = dht.getHumidity(); //Float for humidity
-  float temperatureC = dht.getTemperature(); //Float for Temperature
-  float temperatureF = (temperatureC*9/5)+32;
-  int sensorValue = analogRead(sensorPin); //Initialize sensorValue to be the data from the sensor
-  int airQuality = map(sensorValue, lowest, 1023, 0, 100); //Initialize airquality
-  Serial.print("Air Quality: ");
-  Serial.print(airQuality);
-  Serial.print("% | Humidity: ");
-  Serial.print(humidity);
-  Serial.print("% | Temperature: ");
-  Serial.print(temperatureC);
-  Serial.print("°C / ");
-  Serial.print(temperatureF);
-  Serial.println("°F");
-  delay(1500); //Delay
-}</p>
     </body>
 </html>
