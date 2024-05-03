@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://fictional-space-xylophone-699jjr7rqr7wcr9j6-8080.app.github.dev/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./Trivia!_files/css2" rel="stylesheet">
+        <link href="./Trivia!_files/styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+
+    <body>
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+
+                <h3>What color is a carrot?</h3>
+                <p id="status"></p>
+
+                <button id="incorrect">Orange</button>
+                <button id="incorrect">Green</button>
+                <button id="incorrect">Red</button>
+                <button id="incorrect">Blue</button>
+                <button id="correct">I think its a... i think its a carrot</button>
+
+                <script>
+                    let correct = document.querySelector('#correct');
+                    let incorrect = document.querySelectorAll('#incorrect');
+                    let status = document.querySelector('#status');
+
+                    correct.onclick = function() {
+                        correct.style.backgroundColor = 'green';
+                        status.innerHTML = "Correct!";
+                    };
+
+                    for (let i = 0; i < incorrect.length; i++) {
+                        incorrect[i].onclick = function() {
+                            incorrect[i].style.backgroundColor = 'red';
+                            status.innerHTML = "Incorrect!";
+                        };
+                    }
+                </script>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+
+                <h3>What is a BMW</h3>
+                <p id="status2"></p>
+                <form>
+                    <input type="text" id="value">
+                    <button>Check Answer</button>
+
+                    <script>
+                        document.addEventListener('submit', function() {
+                            let status2 = document.querySelector('#status2');
+                            let value = document.querySelector('#value');
+
+                            if (value.value == 'A Car' || value.value == 'a car' || value.value == 'Car' || value.value == 'car' || value.value == 'A car' || value.value == 'a Car') {
+                                value.style.backgroundColor = 'green';
+                                status2.innerHTML = 'Correct!';
+                            }
+                            else {
+                                value.style.backgroundColor = 'red';
+                                status2.innerHTML = 'Incorrect!';
+                            }
+                        });
+                    </script>
+                </form>
+            </div>
+        </div>
+    
+
+</body></html>
